@@ -17,7 +17,7 @@ export default function WorkWithUsPage() {
     attachmentUrl: ''
   });
 
-  const targetEmail = 'ashmithatmuri2@gmail.com';
+  const targetEmail = 'founder@arkadhi.com';
 
   const descriptions = {
     research: 'For joint research, paper review, architecture discussions, and academic collaboration.',
@@ -38,7 +38,7 @@ export default function WorkWithUsPage() {
     setErrorMsg(null);
 
     try {
-      // Direct email routing via FormSubmit API targeting ashmithatmuri2@gmail.com
+      // Direct email routing via FormSubmit API targeting founder@arkadhi.com
       const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
         method: 'POST',
         headers: {
@@ -63,11 +63,9 @@ export default function WorkWithUsPage() {
       if (response.ok) {
         setIsSubmitted(true);
       } else {
-        // Fallback: submit standard form if AJAX is blocked
         setIsSubmitted(true);
       }
     } catch (err) {
-      // Show success so user is not blocked, but log error
       console.warn('FormSubmit AJAX fallback:', err);
       setIsSubmitted(true);
     } finally {
@@ -83,7 +81,7 @@ export default function WorkWithUsPage() {
             <div className="eyebrow">Contact & Collaboration</div>
             <h1 className="headline">Bring a precise problem.</h1>
             <p className="lead">
-              Use this form to reach the research team directly. Inquiries are automatically routed to <strong style={{ color: '#14999C' }}>{targetEmail}</strong>.
+              Use this form to reach the research leadership directly. Inquiries are automatically routed to <strong style={{ color: '#14999C' }}>{targetEmail}</strong>.
             </p>
           </ScrollReveal>
         </div>
