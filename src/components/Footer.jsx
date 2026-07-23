@@ -6,29 +6,28 @@ import ArkadhiLogo from './ArkadhiLogo';
 export default function Footer() {
   const groups = [
     {
-      title: 'Research & Paper',
+      title: 'Research',
       links: [
         ['Flagship Paper', '/research'],
         ['CMP Architecture', '/research'],
-        ['ByteCL Benchmark', '/research'],
-        ['Method Notes', '/blog']
+        ['ByteCL Benchmark', '/research']
       ]
     },
     {
-      title: 'Products & Systems',
+      title: 'Products',
       links: [
         ['Prexi Platform', '/products'],
         ['Prism Runtime', '/products'],
-        ['Trace Atlas', '/products'],
-        ['Context Management', '/products']
+        ['Trace Atlas', '/products']
       ]
     },
     {
-      title: 'Collaboration',
+      title: 'Lab & Careers',
       links: [
-        ['Work With Us', '/work-with-us'],
-        ['Research Grants', '/work-with-us'],
-        ['Contact Team', '/work-with-us']
+        ['Lab Operating Model', '/lab'],
+        ['Principles', '/lab'],
+        ['Research Careers', '/careers'],
+        ['Work With Us', '/work-with-us']
       ]
     }
   ];
@@ -40,7 +39,7 @@ export default function Footer() {
           <div style={{ gridColumn: 'span 1 / span 1' }}>
             <ArkadhiLogo variant="full" theme="light" size="md" />
             <p style={{ marginTop: 18, color: '#c9d4df', maxWidth: 340, fontSize: 14 }}>
-              Arkadhi Labs builds research-grade AI systems, local learning rules, and deployment infrastructure for original model architecture work.
+              Arkadhi Labs is a research-first AI lab building original model architecture, local gradient-free learning rules, and evidence-based evaluation infrastructure.
             </p>
             <NavLink to="/work-with-us" className="btn-primary" style={{ marginTop: 22 }}>
               Start a Collaboration <ArrowUpRight size={16} />
