@@ -13,9 +13,8 @@ import {
   Zap, 
   BookOpen, 
   Copy,
-  Search,
-  SlidersHorizontal,
-  PlusCircle
+  Clock,
+  FlaskConical
 } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
 import PaperModal from '../components/PaperModal';
@@ -24,11 +23,13 @@ export default function ResearchPage() {
   const [selectedPaper, setSelectedPaper] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
 
-  // Multi-paper database for Arkadhi Labs
+  // Multi-paper database: Flagship is released, others are explicitly marked "In Preparation"
   const papers = [
     {
       id: 'cmp-2026',
       isFlagship: true,
+      status: 'Published Paper',
+      statusColor: '#14999C',
       title: "What Fires Together Doesn't Forget Together",
       subtitle: "Local, sparse, gradient-free plasticity (CMP) resists catastrophic forgetting 15–19× better than online EWC.",
       authors: ['Ashmith Atmuri*', 'Akshay Kumar', 'Yashaswini Rao Bhogarajula'],
@@ -74,57 +75,63 @@ export default function ResearchPage() {
     {
       id: 'bytecl-2026',
       isFlagship: false,
+      status: 'In Preparation',
+      statusColor: '#eab308',
       title: "ByteCL: A Tokenizer-Free Byte-Level Continual Learning Benchmark",
       subtitle: "Standardizing continual learning evaluation without vocabulary shift or subword tokenizer contamination.",
       authors: ['Arkadhi Labs Benchmark Group'],
       affiliation: 'Arkadhi Labs',
-      date: '2026',
+      date: 'In Prep (2026)',
       category: 'Benchmarks',
       type: 'Benchmark Specification',
-      arxivId: 'Arkadhi-BM-2026.02',
+      arxivId: 'Draft BM-002',
       benchmark: 'Byte-Stream Domain Shift Suite',
       metrics: [
         { label: 'Tokenizer Bias', value: 'Zero (Raw Bytes)' },
         { label: 'Domains', value: '15 Standardized' },
         { label: 'Evaluation', value: 'BPB Bits-Per-Byte' }
       ],
-      abstract: `Existing continual learning benchmarks rely on subword tokenizers (BPE, WordPiece) that bake in static vocabulary distribution assumptions and introduce tokenizer contamination across domains. ByteCL provides a standardized, multi-domain byte-stream benchmark designed specifically for non-subword and byte-level sequence models.`,
+      abstract: `[Work in Progress] Existing continual learning benchmarks rely on subword tokenizers (BPE, WordPiece) that bake in static vocabulary distribution assumptions and introduce tokenizer contamination across domains. ByteCL provides a standardized, multi-domain byte-stream benchmark designed specifically for non-subword and byte-level sequence models.`,
     },
     {
       id: 'prism-runtime-2026',
       isFlagship: false,
+      status: 'In Preparation',
+      statusColor: '#eab308',
       title: "Selective Compute Allocation in Non-Backprop Memory Architectures",
       subtitle: "Sparse activation execution kernels paired with content-addressed Hopfield memory retrieval.",
       authors: ['Arkadhi Labs Systems Group'],
       affiliation: 'Arkadhi Labs',
-      date: '2026',
+      date: 'In Prep (2026)',
       category: 'Architecture',
       type: 'Systems Technical Note',
-      arxivId: 'Arkadhi-SYS-2026.03',
+      arxivId: 'Draft SYS-003',
       benchmark: 'Routing & Latency Suite',
       metrics: [
         { label: 'Memory Access', value: 'O(1) Slots' },
         { label: 'Autograd Overhead', value: 'Zero Graph' }
       ],
-      abstract: `A technical note on accelerating sparse relational binding and two-tier Hopfield memory reads. We show that one-cue-at-a-time recurrent retrieval avoids the quadratic all-pairs attention matrix while maintaining stable memory access during online local updates.`,
+      abstract: `[Work in Progress] A technical note on accelerating sparse relational binding and two-tier Hopfield memory reads. We show that one-cue-at-a-time recurrent retrieval avoids the quadratic all-pairs attention matrix while maintaining stable memory access during online local updates.`,
     },
     {
       id: 'diag-negative-2026',
       isFlagship: false,
+      status: 'In Preparation',
+      statusColor: '#eab308',
       title: "Diagnostic Analysis of Stacking Non-Sparse Binding Blocks",
       subtitle: "Why feeding dense normalized vectors into sparse associative memory degrades slot-matching precision.",
       authors: ['Ashmith Atmuri', 'Akshay Kumar'],
       affiliation: 'Arkadhi Labs',
-      date: '2026',
+      date: 'In Prep (2026)',
       category: 'Technical Reports',
       type: 'Negative Result Report',
-      arxivId: 'Arkadhi-TR-2026.04',
+      arxivId: 'Draft TR-004',
       benchmark: 'Appendix D Diagnostic',
       metrics: [
         { label: 'Performance', value: '3.48 vs 3.27 BPB' },
         { label: 'Diagnosis', value: 'Slot Contamination' }
       ],
-      abstract: `Disclosing a diagnosed negative result from attempting to merge a 4-block non-sparse depth stack with competitive memory. Dense representations dilute memory slot-matching and create readout signal competition. Published to document failure modes for the research community.`,
+      abstract: `[Work in Progress] Disclosing a diagnosed negative result from attempting to merge a 4-block non-sparse depth stack with competitive memory. Dense representations dilute memory slot-matching and create readout signal competition. Published to document failure modes for the research community.`,
     }
   ];
 
@@ -147,7 +154,7 @@ export default function ResearchPage() {
               Original AI Architecture, <span className="accent">Measured Carefully.</span>
             </h1>
             <p className="lead" style={{ maxWidth: 820 }}>
-              Our index of published papers, technical memos, benchmark specifications, and negative result reports. Built around falsifiable mechanisms and empirical evidence.
+              Our index of published research, papers in preparation, benchmark specifications, and technical notes. Built around falsifiable mechanisms and empirical evidence.
             </p>
           </ScrollReveal>
         </div>
@@ -159,7 +166,8 @@ export default function ResearchPage() {
           <ScrollReveal>
             <div className="dark-card" style={{ padding: '36px 40px', borderLeft: '6px solid #14999C', position: 'relative', overflow: 'hidden' }}>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center', marginBottom: 14 }}>
-                <span className="pill" style={{ background: '#14999C', color: '#ffffff', border: 'none' }}>Featured Flagship Paper</span>
+                <span className="pill" style={{ background: '#14999C', color: '#ffffff', border: 'none' }}>Primary Research Paper</span>
+                <span className="pill" style={{ backgroundColor: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', borderColor: 'transparent' }}>Published</span>
                 <span className="meta" style={{ color: '#14999C' }}>{flagship.category}</span>
                 <span className="meta" style={{ color: '#8f949b' }}>{flagship.date}</span>
               </div>
@@ -189,7 +197,7 @@ export default function ResearchPage() {
 
                 <div style={{ display: 'flex', gap: 12 }}>
                   <button onClick={() => setSelectedPaper(flagship)} className="btn-primary" style={{ padding: '10px 20px' }}>
-                    <FileText size={16} /> Read Paper & Abstract
+                    <FileText size={16} /> Read Full Paper & Abstract
                   </button>
                 </div>
               </div>
@@ -204,8 +212,8 @@ export default function ResearchPage() {
           <ScrollReveal>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20, marginBottom: 32 }}>
               <div>
-                <div className="section-kicker">Publications & Artifacts</div>
-                <h2 className="section-title">All Research Papers</h2>
+                <div className="section-kicker">Publications & Work in Progress</div>
+                <h2 className="section-title">Research Catalog</h2>
               </div>
 
               {/* Category Filter Pills */}
@@ -241,12 +249,22 @@ export default function ResearchPage() {
                     <div>
                       <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center', marginBottom: 10 }}>
                         <span className="pill">{paper.category}</span>
+                        <span 
+                          className="pill" 
+                          style={{ 
+                            backgroundColor: paper.isFlagship ? 'rgba(34, 197, 94, 0.15)' : 'rgba(234, 179, 8, 0.15)', 
+                            color: paper.isFlagship ? '#15803d' : '#854d0e',
+                            borderColor: 'transparent'
+                          }}
+                        >
+                          {paper.status}
+                        </span>
                         <span className="meta">{paper.type}</span>
                         <span className="meta" style={{ color: '#14999C' }}>{paper.date}</span>
                         {paper.arxivId && <span className="meta" style={{ color: '#8f949b' }}>{paper.arxivId}</span>}
                       </div>
 
-                      <h3 style={{ fontSize: 24, color: '#121820', margin: '8px 0 10px', lineHeight: 1.25 }}>
+                      <h3 style={{ fontSize: 23, color: '#121820', margin: '8px 0 10px', lineHeight: 1.25 }}>
                         {paper.title}
                       </h3>
 
@@ -262,11 +280,11 @@ export default function ResearchPage() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'flex-end', minWidth: 160 }}>
                       <button 
                         onClick={() => setSelectedPaper(paper)} 
-                        className="btn-primary" 
+                        className={paper.isFlagship ? 'btn-primary' : 'btn-secondary'} 
                         type="button" 
                         style={{ width: '100%', padding: '9px 16px', fontSize: 13 }}
                       >
-                        <FileText size={15} /> Open Abstract
+                        <FileText size={15} /> {paper.isFlagship ? 'Open Paper' : 'View Abstract'}
                       </button>
                     </div>
                   </div>
@@ -277,7 +295,7 @@ export default function ResearchPage() {
         </div>
       </section>
 
-      {/* Research Programs & Open Problems */}
+      {/* Research Programs */}
       <section className="section">
         <div className="site-container split">
           <ScrollReveal direction="left">
