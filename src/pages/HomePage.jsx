@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ArrowRight, BookOpen, Cpu, Network, ShieldCheck } from 'lucide-react';
+import { ArrowRight, BookOpen, Cpu, Network, ShieldCheck, FileText, Database } from 'lucide-react';
 import ArkadhiLogo from '../components/ArkadhiLogo';
 import ScrollReveal from '../components/ScrollReveal';
 import CrystalMotionCanvas from '../components/CrystalMotionCanvas';
@@ -9,62 +9,61 @@ export default function HomePage() {
   const pillars = [
     {
       icon: BookOpen,
-      title: 'Architecture research',
-      text: 'We investigate routing, memory, and evaluation as first-class scientific problems rather than incremental prompt or wrapper improvements.',
+      title: 'Architecture & Plasticity',
+      text: 'We investigate local, gradient-free learning rules, sparse relational representations, and structural resistance to catastrophic forgetting.',
       link: '/research'
     },
     {
       icon: Cpu,
-      title: 'Executable systems',
-      text: 'Research programs are paired with kernels, eval harnesses, visualizers, and reproducible logs that can survive external scrutiny.',
+      title: 'Executable Systems',
+      text: 'Products like Prexi for LLM context management and ByteCL benchmark harnesses that survive rigorous external scientific scrutiny.',
       link: '/products'
     },
     {
       icon: ShieldCheck,
-      title: 'Evidence discipline',
-      text: 'Every claim is tracked against a benchmark protocol, ablation plan, contamination check, and replication path.',
+      title: 'Evidence Discipline',
+      text: 'Every claim is validated with multi-seed replication, explicit domain-order controls, and transparent disclosure of negative results.',
       link: '/blog'
     }
   ];
 
   const standards = [
-    ['Problem', 'Long-context reasoning, sparse compute, and benchmark contamination are treated as coupled architecture failures.'],
-    ['Method', 'Build minimal mechanisms, isolate the claimed effect, then scale only after reproducible evidence is stable.'],
-    ['Artifact', 'Papers, code, data cards, visual traces, and negative results are designed to be legible to outside researchers.'],
-    ['Collaboration', 'We work with labs, universities, and technical teams that need rigorous model or system evaluation.']
+    ['Central Thesis', 'Catastrophic forgetting is a structural defect of global backpropagation, not a training defect to be patched.'],
+    ['Core Mechanism', 'Cognitive Memory Primitive (CMP) binds byte pairs into sparse codes with local, gradient-free plasticity.'],
+    ['Benchmark Proof', '15–19× lower backward transfer (BWT) than Transformer + Online EWC on 15 sequential text domains.'],
+    ['Open Benchmark', 'Building ByteCL: a standardized byte-level benchmark for continual learning evaluation without tokenizer bias.']
   ];
 
   const notes = [
-    ['Research note', 'Sparse routing should be measured as an intervention, not a marketing adjective.'],
-    ['Systems log', 'What a useful activation trace must show before it becomes evidence.'],
-    ['Evaluation memo', 'Benchmark construction rules for avoiding accidental memorization.']
+    ['Flagship Paper', 'What Fires Together Doesn’t Forget Together (Atmuri et al., 2026)'],
+    ['Live Product', 'Prexi: Drop-in LLM Context Management — 65% token cost reduction'],
+    ['Benchmark Suite', 'ByteCL: Byte-level continual learning evaluation protocol']
   ];
 
   return (
     <div className="page">
       {/* Hero with crystal motion background */}
       <section className="paper-hero" style={{ position: 'relative', overflow: 'hidden' }}>
-        {/* Subtle crystalline canvas in the hero area */}
         <div style={{ position: 'absolute', inset: 0, opacity: 0.35, zIndex: 0 }}>
           <CrystalMotionCanvas theme="light" />
         </div>
 
         <div className="site-container hero-grid" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="hero-rail">Arkadhi Labs / Research index</div>
+          <div className="hero-rail">Arkadhi Labs / Research Index</div>
           <div>
-            <div className="eyebrow">Arkadhi Labs / Frontier AI research</div>
+            <div className="eyebrow">Arkadhi Labs / Frontier AI Research</div>
             <h1 className="headline">
               Where intelligence <span className="accent">takes shape.</span>
             </h1>
             <p className="lead">
-              Arkadhi Labs is a research-first AI lab building original model architecture, evaluation infrastructure, and systems tooling with the rigor of a frontier paper.
+              Arkadhi Labs is a research-first AI lab building original model architecture, local gradient-free learning rules, and evaluation infrastructure with the rigor of a frontier paper.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 30, animation: 'fadeInUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both' }}>
               <NavLink to="/research" className="btn-primary">
-                Explore research <ArrowRight size={16} />
+                Explore Research Paper <ArrowRight size={16} />
               </NavLink>
-              <NavLink to="/work-with-us" className="btn-secondary">
-                Work with us
+              <NavLink to="/products" className="btn-secondary">
+                View Prexi & Tools
               </NavLink>
             </div>
           </div>
@@ -74,20 +73,20 @@ export default function HomePage() {
               <div className="animate-float">
                 <ArkadhiLogo variant="mark" theme="teal" size="xl" />
               </div>
-              <span className="meta">Lab brief</span>
+              <span className="meta">Lab Brief</span>
             </div>
-            <h2 style={{ marginTop: 26, marginBottom: 10, fontSize: 28, color: '#121820' }}>Research program</h2>
-            <p style={{ color: '#586170', fontSize: 15 }}>
-              A focused agenda for sparse activation, memory-efficient inference, and uncontaminated reasoning evaluation.
+            <h2 style={{ marginTop: 26, marginBottom: 10, fontSize: 24, color: '#121820' }}>What Fires Together...</h2>
+            <p style={{ color: '#586170', fontSize: 14 }}>
+              Demonstrating <strong>15–19× lower forgetting</strong> using Cognitive Memory Primitives (CMP) with zero backprop.
             </p>
-            <div style={{ display: 'grid', gap: 12, marginTop: 24 }}>
-              {['Mechanism design', 'Ablation protocol', 'Runtime trace', 'External review'].map((item, index) => (
+            <div style={{ display: 'grid', gap: 12, marginTop: 20 }}>
+              {['Sparse Relational Binding', 'Two-Tier Hopfield Memory', 'Weight-Protect Plasticity', 'ByteCL Benchmark'].map((item, index) => (
                 <div key={item} style={{
                   display: 'grid', gridTemplateColumns: '36px 1fr', gap: 12, alignItems: 'center',
                   animation: `fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${0.5 + index * 0.1}s both`
                 }}>
                   <span className="meta">{String(index + 1).padStart(2, '0')}</span>
-                  <span style={{ color: '#121820', fontWeight: 700 }}>{item}</span>
+                  <span style={{ color: '#121820', fontWeight: 700, fontSize: 13 }}>{item}</span>
                 </div>
               ))}
             </div>
@@ -128,10 +127,10 @@ export default function HomePage() {
       <section className="section section-dark">
         <div className="site-container split">
           <ScrollReveal direction="up">
-            <div className="section-kicker">Core thesis</div>
+            <div className="section-kicker">Core Research Thesis</div>
             <h2 className="section-title">Frontier progress needs better structure, not only larger scale.</h2>
             <p className="section-copy">
-              The lab studies how models allocate compute, preserve context, and prove reasoning ability. The operating belief is simple: architecture, measurement, and systems have to advance together.
+              The lab studies how models allocate compute, preserve memory, and avoid catastrophic forgetting. Our operating belief is simple: architecture, measurement, and systems must advance together.
             </p>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={200}>
@@ -156,20 +155,20 @@ export default function HomePage() {
           <ScrollReveal>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: 24, flexWrap: 'wrap', marginBottom: 30 }}>
               <div>
-                <div className="section-kicker">Latest from the lab</div>
-                <h2 className="section-title">Notes written like methods sections.</h2>
+                <div className="section-kicker">Latest Artifacts</div>
+                <h2 className="section-title">Original research and products.</h2>
               </div>
-              <NavLink to="/blog" className="btn-secondary">View all notes</NavLink>
+              <NavLink to="/research" className="btn-secondary">View Research Paper</NavLink>
             </div>
           </ScrollReveal>
           <div className="grid-3">
             {notes.map(([type, title], idx) => (
               <ScrollReveal key={title} delay={idx * 140}>
-                <NavLink to="/blog" className="paper-card" style={{ padding: 24, display: 'block' }}>
+                <NavLink to={type === 'Live Product' ? '/products' : '/research'} className="paper-card" style={{ padding: 24, display: 'block' }}>
                   <span className="meta">{type}</span>
-                  <h3 style={{ marginTop: 18, color: '#121820', fontSize: 22 }}>{title}</h3>
+                  <h3 style={{ marginTop: 18, color: '#121820', fontSize: 20 }}>{title}</h3>
                   <span className="btn-ghost" style={{ marginTop: 26 }}>
-                    Open note <ArrowRight size={15} />
+                    Explore <ArrowRight size={15} />
                   </span>
                 </NavLink>
               </ScrollReveal>
@@ -191,12 +190,12 @@ export default function HomePage() {
           <ScrollReveal direction="right" delay={200}>
             <div className="card animate-pulse-glow" style={{ padding: 28 }}>
               <Network size={24} color="#14999C" />
-              <h3 style={{ margin: '16px 0 10px', color: '#121820', fontSize: 24 }}>Good fit</h3>
+              <h3 style={{ margin: '16px 0 10px', color: '#121820', fontSize: 24 }}>Good Fit</h3>
               <p style={{ color: '#586170', fontSize: 14 }}>
-                Academic labs, infrastructure teams, model builders, and enterprises evaluating non-standard AI systems.
+                Academic labs, model architecture teams, and researchers building non-backprop continual learning models.
               </p>
               <NavLink to="/work-with-us" className="btn-primary" style={{ marginTop: 24 }}>
-                Start the conversation <ArrowRight size={16} />
+                Start the Conversation <ArrowRight size={16} />
               </NavLink>
             </div>
           </ScrollReveal>
