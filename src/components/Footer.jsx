@@ -6,30 +6,29 @@ import ArkadhiLogo from './ArkadhiLogo';
 export default function Footer() {
   const groups = [
     {
-      title: 'Research',
+      title: 'Research & Paper',
       links: [
-        ['Research agenda', '/research'],
-        ['Publications', '/research'],
-        ['Open problems', '/research'],
-        ['Lab notes', '/blog']
+        ['Flagship Paper', '/research'],
+        ['CMP Architecture', '/research'],
+        ['ByteCL Benchmark', '/research'],
+        ['Method Notes', '/blog']
       ]
     },
     {
-      title: 'Systems',
+      title: 'Products & Systems',
       links: [
-        ['Products', '/products'],
-        ['Evaluation suite', '/products'],
-        ['Runtime tooling', '/products'],
-        ['Benchmarks', '/products']
+        ['Prexi Platform', '/products'],
+        ['Prism Runtime', '/products'],
+        ['Trace Atlas', '/products'],
+        ['Context Management', '/products']
       ]
     },
     {
-      title: 'Company',
+      title: 'Collaboration',
       links: [
-        ['Lab', '/lab'],
-        ['Careers', '/careers'],
-        ['Work with us', '/work-with-us'],
-        ['Contact', '/work-with-us']
+        ['Work With Us', '/work-with-us'],
+        ['Research Grants', '/work-with-us'],
+        ['Contact Team', '/work-with-us']
       ]
     }
   ];
@@ -41,10 +40,10 @@ export default function Footer() {
           <div style={{ gridColumn: 'span 1 / span 1' }}>
             <ArkadhiLogo variant="full" theme="light" size="md" />
             <p style={{ marginTop: 18, color: '#c9d4df', maxWidth: 340, fontSize: 14 }}>
-              Arkadhi Labs builds research-grade AI systems, evaluation methods, and deployment infrastructure for original model architecture work.
+              Arkadhi Labs builds research-grade AI systems, local learning rules, and deployment infrastructure for original model architecture work.
             </p>
             <NavLink to="/work-with-us" className="btn-primary" style={{ marginTop: 22 }}>
-              Start a collaboration <ArrowUpRight size={16} />
+              Start a Collaboration <ArrowUpRight size={16} />
             </NavLink>
           </div>
 
@@ -76,7 +75,7 @@ export default function Footer() {
           fontSize: 12
         }}>
           <span>(c) {new Date().getFullYear()} Arkadhi Labs. All rights reserved.</span>
-          <span>Bengaluru / Hyderabad / Remote research network</span>
+          <span>Bengaluru / Hyderabad / Remote Research Network</span>
         </div>
       </div>
     </footer>

@@ -12,11 +12,9 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Research', path: '/research' },
+    { name: 'Paper', path: '/research' },
     { name: 'Products', path: '/products' },
-    { name: 'Lab', path: '/lab' },
     { name: 'Blog', path: '/blog' },
-    { name: 'Careers', path: '/careers' },
     { name: 'Work With Us', path: '/work-with-us', isHighlight: true },
   ];
 
